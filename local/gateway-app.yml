@@ -15,6 +15,12 @@ spring:
             - Path=/second/**
           filters:
             - RewritePath=/second/?(?<segment>.*),/$\{segment}
+        - id: third
+          uri: http://localhost:9002
+          predicates:
+            - Path=/third/**
+          filters:
+            - RewritePath=/third/?(?<segment>.*),/$\{segment}
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
