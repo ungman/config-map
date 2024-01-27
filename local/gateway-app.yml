@@ -3,14 +3,14 @@ spring:
     gateway:
       routes:
         - id: first
-          uri: localhost:9000
+          uri: http://localhost:9000
           predicates:
             - Path=/first/**
           filters:
-            - RewritePath=/first/?(?<segment>.*),/$\{segment}
+            - RewritePath=/first/?(?<segment>.*), /$\{segment}
 
         - id: second
-          uri: localhost:9001
+          uri: http://localhost:9001
           predicates:
             - Path=/second/**
           filters:
