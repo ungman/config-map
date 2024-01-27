@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: first
+          uri: localhost:9000
+          predicates:
+            - Path=/first/**
+          filters:
+            - RewritePath=/first/?(?<segment>.*),/$\{segment}
+
+        - id: second
+          uri: localhost:9001
+          predicates:
+            - Path=/second/**
+          filters:
+            - RewritePath=/second/?(?<segment>.*),/$\{segment}
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG

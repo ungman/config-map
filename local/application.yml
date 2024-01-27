@@ -1,0 +1,21 @@
+spring.cloud.config:
+
+  # true - разрешить переопределение настроек из централизованного конфига
+  allow-override: true
+
+  # true - централизованные настройки должны переопределять system properties
+  override-system-properties: false
+
+  # true - централизованные настройки имеют более низкий приоритет, чем локальные
+  override-none: true
+
+
+# Actuator
+management:
+  endpoint:
+    prometheus.enabled: true
+    metrics.enabled: true
+  endpoints:
+    web:
+      exposure.include: [ 'prometheus', 'health', 'health-soft', 'configprops', 'env', 'mappings', 'refresh','routes' ]
+  metrics.export.prometheus.enabled: true
