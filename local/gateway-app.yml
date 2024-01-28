@@ -71,3 +71,6 @@ springdoc:
   group-configs[0]:
     group: api-gateway
     pathsToMatch: /**
+  group-configs[1]:
+    group: api-gateway
+    pathsToMatch: /**
