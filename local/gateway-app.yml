@@ -1,5 +1,7 @@
 spring:
   cloud:
+    config:
+      initialize-on-context-refresh: true
     gateway:
       routes:
         - id: first
@@ -27,6 +29,33 @@ spring:
             - Path=/new2/**
           filters:
             - RewritePath=/new2/?(?<segment>.*),/$\{segment}
+  jpa:
+    open-in-view: false
+
+
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
+
+management:
+  endpoint:
+    prometheus.enabled: false
+    metrics.enabled: true
+  endpoints:
+    web:
+      exposure.include: [ 'prometheus', 'health', 'health-soft', 'configprops', 'env', 'mappings', 'refresh','routes' ]
+  metrics.export.prometheus.enabled: true
+
+
+springdoc:
+  cache:
+    disabled: true
+  # We should display api-gateway as well
+  swagger-ui:
+    urls[0]:
+      name: api-gateway
+      url: /v3/api-docs
+  # adding this so that List<groupedopenapi> bean will trigger
+  group-configs[0]:
+    group: api-gateway
+    pathsToMatch: /**
