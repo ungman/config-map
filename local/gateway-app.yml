@@ -35,6 +35,12 @@ spring:
             - Path=/new4/**
           filters:
             - RewritePath=/new4/?(?<segment>.*),/$\{segment}
+        - id: NEW 5
+          uri: http://localhost:9002
+          predicates:
+            - Path=/new4/**
+          filters:
+            - RewritePath=/new4/?(?<segment>.*),/$\{segment}
   jpa:
     open-in-view: false
 
