@@ -13,7 +13,7 @@ spring.cloud.config:
 # Actuator
 management:
   endpoint:
-    prometheus.enabled: true
+    prometheus.enabled: false
     metrics.enabled: true
   endpoints:
     web:
