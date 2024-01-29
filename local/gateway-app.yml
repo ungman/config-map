@@ -29,18 +29,6 @@ spring:
             - Path=/new3/**
           filters:
             - RewritePath=/new2/?(?<segment>.*),/$\{segment}
-        - id: NEW 4
-          uri: http://localhost:9002
-          predicates:
-            - Path=/new4/**
-          filters:
-            - RewritePath=/new4/?(?<segment>.*),/$\{segment}
-        - id: NEW 5
-          uri: http://localhost:9002
-          predicates:
-            - Path=/new4/**
-          filters:
-            - RewritePath=/new4/?(?<segment>.*),/$\{segment}
   jpa:
     open-in-view: false
 
@@ -58,13 +46,4 @@ management:
       exposure.include: [ 'prometheus', 'health', 'health-soft', 'configprops', 'env', 'mappings', 'refresh','routes' ]
   metrics.export.prometheus.enabled: true
 
-
-springdoc:
-  cache:
-    disabled: true
-  # We should display api-gateway as well
-  swagger-ui:
-    urls[0]:
-      name: api-gateway
-      url: /v3/api-docs
 
