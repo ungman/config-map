@@ -67,7 +67,4 @@ springdoc:
     urls[0]:
       name: api-gateway
       url: /v3/api-docs
-  # adding this so that List<groupedopenapi> bean will trigger
-  group-configs[0]:
-    group: api-gateway-1
-    pathsToMatch: /**
+
