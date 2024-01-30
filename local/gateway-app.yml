@@ -37,15 +37,6 @@ context:
     force-recreate: true
 
 
-
-swagger:
-  # список приложений для которых не нужен свагер
-  without-swagger:
-    - none
-  # список приложений для которых надо 2 версию свагерра подтягитивать
-  swagger-v2:
-    - none
-
 springdoc:
   cache:
     disabled: true
@@ -57,3 +48,11 @@ springdoc:
   group-configs[0]:
     group: api-gateway
     pathsToMatch: /**
+  # Набор кастомных параметров  для свагерра
+  custom:
+    # список приложений для которых не нужен свагер
+    without-swagger:
+      - none
+    # список приложений для которых надо 2 версию свагерра подтягитивать
+    swagger-v2:
+      - none
