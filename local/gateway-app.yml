@@ -26,18 +26,34 @@ spring:
   jpa:
     open-in-view: false
 
-
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
-
-management:
-  endpoint:
-    prometheus.enabled: false
-    metrics.enabled: true
-  endpoints:
-    web:
-      exposure.include: [ 'prometheus', 'health', 'health-soft', 'configprops', 'env', 'mappings', 'refresh','routes' ]
-  metrics.export.prometheus.enabled: true
+# Данная проперти отвечает за перезагрузку контекста
+context:
+  reload:
+    #отвечает за включение перезагрузки контекста
+    enable: true
+    #крон выражение запуска по расписанию
+    cron: 0/10 * * * * *
+    #  пересоздание бинов после перезагрузки контекста (нужно в данный момент для корректного отображения сваггера)
+    force-recreate: true
 
 
+
+swagger:
+  # список приложений для которых не нужен свагер
+  without-swagger:
+    - none
+  # список приложений для которых надо 2 версию свагерра подтягитивать
+  swagger-v2:
+    - none
+
+springdoc:
+  cache:
+    disabled: true
+  # We should display api-gateway as well
+  swagger-ui:
+    urls[0]:
+      name: api-gateway
+      url: /v3/api-docs
+  group-configs[0]:
+    group: api-gateway
+    pathsToMatch: /**
