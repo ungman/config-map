@@ -17,7 +17,7 @@ spring:
             - Path=/second/**
           filters:
             - RewritePath=/second/?(?<segment>.*),/$\{segment}
-        - id: third 1
+        - id: third
           uri: http://localhost:9002
           predicates:
             - Path=/third/**
