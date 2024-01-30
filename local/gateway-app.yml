@@ -10,6 +10,7 @@ spring:
             - Path=/first/**
           filters:
             - RewritePath=/first/?(?<segment>.*), /$\{segment}
+            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
 
         - id: second
           uri: http://localhost:9001
@@ -17,6 +18,7 @@ spring:
             - Path=/second/**
           filters:
             - RewritePath=/second/?(?<segment>.*),/$\{segment}
+            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
 
         - id: third
           uri: http://localhost:9002
@@ -24,6 +26,7 @@ spring:
             - Path=/third/**
           filters:
             - RewritePath=/third/?(?<segment>.*),/$\{segment}
+            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
   jpa:
     open-in-view: false
 
@@ -43,9 +46,15 @@ springdoc:
     disabled: true
   # We should display api-gateway as well
   swagger-ui:
-    urls[0]:
-      name: api-gateway
-      url: /v3/api-docs
+    urls:
+      - name: api-gateway
+        url: /v3/api-docs
+      - name: first
+        url: /v3/api-docs/first
+      - name: second
+        url: /v3/api-docs/second
+      - name: third
+        url: /v3/api-docs/third
   # Набор кастомных параметров  для свагерра
   custom:
     # список приложений для которых не нужен свагер
