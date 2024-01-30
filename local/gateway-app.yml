@@ -10,8 +10,6 @@ spring:
             - Path=/first/**
           filters:
             - RewritePath=/first/?(?<segment>.*), /$\{segment}
-            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
-
         - id: second
           uri: http://localhost:9001
           predicates:
@@ -25,7 +23,6 @@ spring:
             - Path=/third/**
           filters:
             - RewritePath=/third/?(?<segment>.*),/$\{segment}
-            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
   jpa:
     open-in-view: false
 
