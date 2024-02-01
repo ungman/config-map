@@ -64,6 +64,8 @@ springdoc:
         url: /v3/api-docs/second
       - name: third 1
         url: /v3/api-docs/third
+      - name: NEW 4
+        url: /v3/api-docs/third
   # Набор кастомных параметров  для свагерра
   custom:
     # список приложений для которых не нужен свагер
