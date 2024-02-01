@@ -23,6 +23,13 @@ spring:
             - Path=/third/**
           filters:
             - RewritePath=/third/?(?<segment>.*),/$\{segment}
+
+        - id: NEW 4
+          uri: http://localhost:9002
+          predicates:
+            - Path=/NEW/**
+          filters:
+            - RewritePath=/NEW/?(?<segment>.*),/$\{segment}
         - id: openapi
           uri: http://localhost:${server.port}
           predicates:
