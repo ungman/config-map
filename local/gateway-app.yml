@@ -24,7 +24,7 @@ spring:
           filters:
             - RewritePath=/third/?(?<segment>.*),/$\{segment}
 
-        - id: NEW 4
+        - id: new 4
           uri: http://localhost:9002
           predicates:
             - Path=/NEW/**
@@ -46,8 +46,6 @@ context:
     enable: true
     #крон выражение запуска по расписанию
     cron: 0/10 * * * * *
-    #  пересоздание бинов после перезагрузки контекста (нужно в данный момент для корректного отображения сваггера)
-    force-recreate: true
 
 
 springdoc:
@@ -64,14 +62,7 @@ springdoc:
         url: /v3/api-docs/second
       - name: third 1
         url: /v3/api-docs/third
-      - name: NEW 4
+      - name: new 4
         url: /v3/api-docs/third
-  # Набор кастомных параметров  для свагерра
-  custom:
-    # список приложений для которых не нужен свагер
-    without-swagger:
-      - none
-    # список приложений для которых надо 2 версию свагерра подтягитивать
-    swagger-v2:
-      - none
+
 
