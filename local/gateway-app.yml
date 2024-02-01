@@ -6,10 +6,10 @@ spring:
       enabled: true
     gateway:
       routes:
-        - id: first
+        - id: first1
           uri: http://localhost:9000
           predicates:
-            - Path=/first/**
+            - Path=/first1/**
           filters:
             - RewritePath=/first/?(?<segment>.*), /$\{segment}
         - id: second
