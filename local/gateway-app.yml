@@ -65,7 +65,7 @@ springdoc:
         url: /v3/api-docs/second
       - name: third
         url: /v3/api-docs/third
-      - name: new 1
-        url: /v3/api-docs/third
+      - name: new1
+        url: /v3/api-docs/new1
 
 
