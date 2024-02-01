@@ -23,6 +23,12 @@ spring:
             - Path=/third/**
           filters:
             - RewritePath=/third/?(?<segment>.*),/$\{segment}
+        - id: openapi
+          uri: http://localhost:${server.port}
+          predicates:
+            - Path=/v3/api-docs/**
+          filters:
+            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
   jpa:
     open-in-view: false
 
@@ -46,11 +52,11 @@ springdoc:
       - name: api-gateway
         url: /v3/api-docs
       - name: first
-        url: /first/v3/api-docs/
+        url: /v3/api-docs/first
       - name: second
-        url: /second/v3/api-docs/
+        url: /v3/api-docs/second
       - name: third
-        url: /third/v3/api-docs/
+        url: /v3/api-docs/third
   # Набор кастомных параметров  для свагерра
   custom:
     # список приложений для которых не нужен свагер
