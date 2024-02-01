@@ -50,6 +50,7 @@ context:
     cron: 0/10 * * * * *
 
 
+
 springdoc:
   cache:
     disabled: true
