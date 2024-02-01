@@ -70,5 +70,5 @@ logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
   level:
-    org.springframework.cloud.gateway: TRACE
-    org.springframework.http.server.reactive: TRACE
+#    org.springframework.cloud.gateway: TRACE
+#    org.springframework.http.server.reactive: TRACE
