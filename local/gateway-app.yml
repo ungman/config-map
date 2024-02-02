@@ -32,12 +32,20 @@ spring:
             - Path=/NEW/**
           filters:
             - RewritePath=/NEW/?(?<segment>.*),/$\{segment}
+        - id: real
+          uri: http://localhost:9003
+          predicates:
+            - Path=/real/**
+          filters:
+            - RewritePath=/real/?(?<segment>.*),/$\{segment}
+
         - id: openapi
           uri: http://localhost:${server.port}
           predicates:
             - Path=/v3/api-docs/**
           filters:
             - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+
   jpa:
     open-in-view: false
 
@@ -65,5 +73,7 @@ springdoc:
         url: /v3/api-docs/second
       - name: third
         url: /v3/api-docs/third
+      - name: real
+        url: /v3/api-docs/real
 
 
