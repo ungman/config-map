@@ -38,7 +38,12 @@ spring:
             - Path=/real/**
           filters:
             - RewritePath=/real/?(?<segment>.*),/$\{segment}
-
+        - id: openapi-proxy
+          uri: https://demos.springdoc.org
+          predicates:
+            - Path=/demo-microservices/v3/api-docs/**
+          filters:
+            - RewritePath=/demo-microservices/v3/api-docs/(?<path>.*), /demo-microservices/$\{path}/v3/api-docs
         - id: openapi
           uri: http://localhost:${server.port}
           predicates:
@@ -58,6 +63,8 @@ context:
     cron: 0/10 * * * * *
 
 
+server:
+  forward-headers-strategy: framework
 
 springdoc:
   cache:
@@ -65,8 +72,6 @@ springdoc:
   # We should display api-gateway as well
   swagger-ui:
     urls:
-      - name: api-gateway
-        url: /v3/api-docs
       - name: first
         url: /v3/api-docs/first
       - name: second
