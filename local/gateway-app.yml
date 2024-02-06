@@ -37,7 +37,7 @@ spring:
           predicates:
             - Path=/ox/**
           metadata:
-            apiDocs: /ox/v3/api-docs
+            apiDocs: /v3/api-docs/ox
         - id: openapi-proxy
           uri: https://demos.springdoc.org
           predicates:
