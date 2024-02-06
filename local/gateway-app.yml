@@ -59,7 +59,7 @@ features:
   #отвечает за включение перезагрузки контекста
   contextReload:
     enable: true
-    cron: * /5 * * * *
+    cron: 0 * * * * *
 
 
 server:
