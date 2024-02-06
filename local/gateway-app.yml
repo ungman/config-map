@@ -54,13 +54,13 @@ spring:
   jpa:
     open-in-view: false
 
-# Данная проперти отвечает за перезагрузку контекста
-context:
-  reload:
-    #отвечает за включение перезагрузки контекста
+features:
+  passWithEmplHeader: true
+  #отвечает за включение перезагрузки контекста
+  contextReload:
     enable: true
     #крон выражение запуска по расписанию
-    cron: 0/10 * * * * *
+    cron: 0 0 * * * *
 
 
 server:
