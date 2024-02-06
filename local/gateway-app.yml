@@ -38,6 +38,8 @@ spring:
             - Path=/ox/**
           metadata:
             apiDocs: /v3/api-docs/ox
+          filters:
+            - RewritePath=/ox/?(?<segment>.*),/$\{segment}
         - id: openapi-proxy
           uri: https://demos.springdoc.org
           predicates:
