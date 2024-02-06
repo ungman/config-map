@@ -32,12 +32,12 @@ spring:
             - Path=/NEW/**
           filters:
             - RewritePath=/NEW/?(?<segment>.*),/$\{segment}
-        - id: real
+        - id: ox
           uri: http://localhost:9003
           predicates:
-            - Path=/real/**
-          filters:
-            - RewritePath=/real/?(?<segment>.*),/$\{segment}
+            - Path=/ox/**
+          metadata:
+            apiDocs: /ox/v3/api-docs
         - id: openapi-proxy
           uri: https://demos.springdoc.org
           predicates:
@@ -59,7 +59,7 @@ features:
   #отвечает за включение перезагрузки контекста
   contextReload:
     enable: true
-    cron: 0 0/10 * * * *
+    cron: 0 0/1 * * * *
 
 
 server:
@@ -71,13 +71,6 @@ springdoc:
   # We should display api-gateway as well
   swagger-ui:
     urls:
-      - name: first
-        url: /v3/api-docs/first
-      - name: second
-        url: /v3/api-docs/second
-      - name: third
-        url: /v3/api-docs/third
-      - name: real
-        url: /v3/api-docs/real
-
+      - name: api-gateway
+        url: /v3/api-docs/
 
