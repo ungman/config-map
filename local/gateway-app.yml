@@ -18,20 +18,8 @@ spring:
             - Path=/second/**
           filters:
             - RewritePath=/second/?(?<segment>.*),/$\{segment}
-
-        - id: third 1
-          uri: http://localhost:9002
-          predicates:
-            - Path=/third1/**
-          filters:
-            - RewritePath=/third/?(?<segment>.*),/$\{segment}
-
-        - id: new 5
-          uri: http://localhost:9002
-          predicates:
-            - Path=/NEW/**
-          filters:
-            - RewritePath=/NEW/?(?<segment>.*),/$\{segment}
+          metadata:
+            apiDocs: /v3/api-docs/second
         - id: ox
           uri: http://localhost:9003
           predicates:
