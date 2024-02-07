@@ -60,6 +60,7 @@ springdoc:
     disabled: true
   # We should display api-gateway as well
   swagger-ui:
+    enabled: false
     urls:
       - name: api-gateway
         url: /v3/api-docs
