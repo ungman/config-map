@@ -48,7 +48,7 @@ features:
   passWithEmplHeader: true
   #отвечает за включение перезагрузки контекста
   contextReload:
-    enable: true
+    enable: false
     cron:  0/10 * * ? * *
 
 
